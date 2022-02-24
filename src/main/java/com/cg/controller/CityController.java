@@ -52,7 +52,7 @@ public class CityController {
             return modelAndView;
         } else {
             cityService.save(city);
-            modelAndView.setViewName("/list");
+            modelAndView.setViewName("/cities/list");
             List<City> cities = cityService.findAll();
             modelAndView.addObject("cities",cities);
             modelAndView.addObject("messages","Thêm thành phố mới thành công");
@@ -73,7 +73,7 @@ public class CityController {
     public ModelAndView updateCity(@Valid @ModelAttribute City city, BindingResult bindingResult,@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         if (bindingResult.hasFieldErrors()) {
-            modelAndView.setViewName("/edit/"+id);
+            modelAndView.setViewName("/cities/update/"+id);
             modelAndView.addObject("city",city);
             modelAndView.addObject("nations", countryService.findAll());
             modelAndView.addObject("messages","Các trường dữ liệu không hợp lệ");
@@ -93,7 +93,7 @@ public class CityController {
 
     @GetMapping("/delete/{id}")
     public ModelAndView showDeletePage(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("/delete");
+        ModelAndView modelAndView = new ModelAndView("/cities/delete");
         City city = cityService.findById(id);
         modelAndView.addObject("countries", countryService.findAll());
         modelAndView.addObject("city", city);

@@ -23,8 +23,8 @@
         </thead>
         <tbody>
         <tr th:each="ct:${cities}">
-            <td th:text="${ct.id}" >John</td>
-            <td th:text="${ct.name}">Doe</td>
+            <td th:text="${ct.id}" >J</td>
+            <td th:text="${ct.name}"></td>
             <td th:text="${ct.country.name}"></td>
             <td>
                 <a th:href="@{'/city/edit/'+${ct.id}}">Chỉnh sửa</a>

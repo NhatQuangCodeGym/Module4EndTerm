@@ -33,9 +33,6 @@
                 <option th:each="country:${countries}" th:text="${country.name}" th:value="${country.id}">
                 </option>
             </select>
-            <div class="invalid-feedback">
-                Please select a valid state.
-            </div>
         </div>
     </div>
     <div class="row mt-2">
@@ -44,9 +41,6 @@
         </div>
         <div class="col-md-5">
             <input type="number" class="form-control" th:fields="*{area}" th:value="${city.area}"  name="area" id="area"  required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
         </div>
     </div>
 

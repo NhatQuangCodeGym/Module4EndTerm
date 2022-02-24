@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 class="ml-5">Xóa thành phố</h2>
+<div class="alert alert-danger ml-5" th:if="${messages!=null}" th:text="${messages}"></div>
+<br>
+<form th:action="@{'/city/delete/'+${city.id}}" th:object="${city}" class=" ml-5 g-3 needs-validation" method="post" novalidate>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="name" class="form-label">Tên: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="text" class="form-control" th:fields="*{name}" th:value="${city.name}" name="name" id="name" required>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="nation" class="form-label">Quốc gia:</label>
+        </div>
+        <div class="col-md-3">
+
+            <select class="form-select" th:fields="*{country}"  name= "nation" id="nation" required>
+                <option selected disabled th:value="${city.nation.id}" th:text="${city.nation.name}"></option>
+                <option th:each="country:${countries}" th:text="${country.name}" th:value="${country.id}">
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="area" class="form-label">Diện tích: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" th:fields="*{area}" th:value="${city.area}"  name="area" id="area"  required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="population" class="form-label">Dân số: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" th:fields="*{population}" th:value="${city.population}" name="population" id="population"  required>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="gdp" class="form-label">GDP: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" th:fields="*{gdp}" th:value="${city.gdp}" name="gdp" id="gdp"  required>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="description" class="form-label">Giới thiệu: </label>
+        </div>
+        <div class="col-md-5">
+            <textarea name="description" id="description" th:fields="*{description}" th:text="${city.description}" cols="80" rows="4"></textarea>
+
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-5 ml-20 ">
+            <button class="btn btn-outline-danger" type="submit">Xóa thành phố</button>
+            <a th:href="@{/city/all}" class="btn btn-outline-secondary">Thoát</a>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

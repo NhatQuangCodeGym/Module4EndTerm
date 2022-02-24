@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/create.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/delete.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/list.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/update.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
+      </map>
+    </option>
+  </component>
+</project>

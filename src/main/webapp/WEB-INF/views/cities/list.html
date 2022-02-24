@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="layout/head::head" />
+    <th:block th:replace="layout/script::script" />
+    <title>City List</title>
+</head>
+<body>
+<div class="container mt-3">
+    <h2>Danh sách thành phố</h2>
+    <a class="btn btn-outline-primary" href="/city/create">Thêm thành phố</a>
+
+    <div class="alert alert-success" th:if="${messages!=null}" th:text="${messages}"></div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Thành phố</th>
+            <th>Quốc gia</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ct:${cities}">
+            <td th:text="${ct.id}" >John</td>
+            <td th:text="${ct.name}">Doe</td>
+            <td th:text="${ct.country.name}"></td>
+            <td>
+                <a th:href="@{'/city/edit/'+${ct.id}}">Chỉnh sửa</a>
+                /
+                <a th:href="@{'/city/delete/'+${ct.id}}">Xóa</a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

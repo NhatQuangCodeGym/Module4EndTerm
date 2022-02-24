@@ -27,7 +27,7 @@
             <select class="form-select" th:fields="*{country}" name= "country" id="country" required>
                 <option  value="">Choose...</option>
                 <th:block th:each="country:${countries}">
-                    <option th:text="${country.getName()}" th:value="${country.getId()}">
+                    <option th:text="${country.name}" th:value="${country.id}">
                     </option>
                 </th:block>
 

@@ -11,6 +11,8 @@ public class Country {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
+
     private String name;
 
     public Long getId() {

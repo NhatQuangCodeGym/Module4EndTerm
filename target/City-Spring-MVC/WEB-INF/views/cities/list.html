@@ -24,7 +24,10 @@
         <tbody>
         <tr th:each="ct:${cities}">
             <td th:text="${ct.id}" >J</td>
-            <td th:text="${ct.name}"></td>
+            <td >
+                <a th:text="${ct.name}" th:href="@{'/city/'+${ct.id}}">
+                </a>
+            </td>
             <td th:text="${ct.country.name}"></td>
             <td>
                 <a th:href="@{'/city/edit/'+${ct.id}}">Chỉnh sửa</a>

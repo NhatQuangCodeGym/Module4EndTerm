@@ -6,71 +6,79 @@
     <th:block th:replace="layout/script::script" />
     <title>City List</title>
 </head>
-<body>
-<div class="container mt-2">
-    <div class="row">
-        <div class="col-8">
-            <h2 class="card-title">Danh sách thành phố</h2>
+<h2 class="ml-5">Thong tin thành phố</h2>
+<br>
+<form th:action="@{'/city/delete/'+${city.id}}" th:object="${city}" class=" ml-5 g-3 needs-validation" method="post" novalidate>
+    <div class="col mt-2 ">
+        <a th:href="@{/city/all}" class="btn btn-outline-secondary">Xem danh sách thành phố </a>
+
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="name" class="form-label" >Tên: </label>
         </div>
-        <div class="col-4 text-end">
-            <a href="/cities/create" class="btn btn-outline-primary">
-                <i class="fa fa-plus-square" aria-hidden="true"></i>
-                <span>Thêm thành phố</span>
-            </a>
+        <div class="col-md-5">
+            <input type="text" class="form-control" disabled th:fields="*{name}" th:value="${city.name}" name="name" id="name" required>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="nation" class="form-label" >Quốc gia:</label>
+        </div>
+        <div class="col-md-3">
+
+            <select class="form-select" th:fields="*{country}"  name= "nation" id="nation" disabled required>
+                <option selected disabled th:value="${city.country.id}" th:text="${city.country.name}"></option>
+                <option th:each="country:${countries}" th:text="${country.name}" th:value="${country.id}">
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="area" class="form-label" >Diện tích: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" disabled th:fields="*{area}" th:value="${city.area}"  name="area" id="area"  required>
         </div>
     </div>
 
-    <div class="row">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th scope="col" class="text-center">#</th>
-                <th scope="col" class="text-center">Tên thành phố</th>
-                <th scope="col" class="text-center">Quốc gia</th>
-                <th scope="col" colspan="2" class="text-center">Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!--                <th:block th:each="city,count : ${cities}">-->
-            <!--                    <tr>-->
-            <!--                        <td th:text="${count.count}"></td>-->
-            <!--                        <td th:text="${customer.fullName}"></td>-->
-            <!--                        <td th:text="${customer.email}"></td>-->
-            <!--                        <td class="text-center" th:text="${customer.phone}"></td>-->
-            <!--                        <td th:text="${customer.address}"></td>-->
-            <!--                        <td class="text-end" th:text="${customer.balance}"></td>-->
-            <!--                        <td>-->
-            <!--                            <a class="btn btn-outline-secondary" th:href="@{/customers/update/__${customer.id}__}">-->
-            <!--                                <i class="fa fa-edit" aria-hidden="true"></i>-->
-            <!--                            </a>-->
-            <!--                        </td>-->
-            <!--                        <td>-->
-            <!--                            <a class="btn btn-outline-success" th:href="@{/customers/deposit/__${customer.id}__}">-->
-            <!--                                <i class="fa fa-plus" aria-hidden="true"></i>-->
-            <!--                            </a>-->
-            <!--                        </td>-->
-            <!--                        <td>-->
-            <!--                            <a class="btn btn-outline-warning" th:href="@{/customers/withdraw/__${customer.id}__}">-->
-            <!--                                <i class="fa fa-minus" aria-hidden="true"></i>-->
-            <!--                            </a>-->
-            <!--                        </td>-->
-            <!--                        <td>-->
-            <!--                            <a class="btn btn-outline-primary" th:href="@{/customers/transfer/__${customer.id}__}">-->
-            <!--                                <i class="fa fa-exchange-alt" aria-hidden="true"></i>-->
-            <!--                            </a>-->
-            <!--                        </td>-->
-            <!--                        <td>-->
-            <!--                            <a class="btn btn-outline-danger" th:href="@{/customers/delete/__${customer.id}__}">-->
-            <!--                                <i class="fa fa-ban" aria-hidden="true"></i>-->
-            <!--                            </a>-->
-            <!--                        </td>-->
-            <!--                    </tr>-->
-
-            <!--                </th:block>-->
-
-            </tbody>
-        </table>
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="population" class="form-label"  >Dân số: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" disabled th:fields="*{population}" th:value="${city.population}" name="population" id="population"  required>
+        </div>
     </div>
-</div>
+
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="gdp" class="form-label" >GDP: </label>
+        </div>
+        <div class="col-md-5">
+            <input type="number" class="form-control" disabled th:fields="*{gdp}" th:value="${city.gdp}" name="gdp" id="gdp"  required>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-1">
+            <label for="description" class="form-label" >Giới thiệu: </label>
+        </div>
+        <div class="col-md-5">
+            <textarea name="description" id="description"  disabled th:fields="*{description}" th:text="${city.description}" cols="80" rows="4"></textarea>
+
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-5 ml-20 ">
+
+            <a class="btn btn-primary" th:href="@{'/city/edit/'+${city.id}}">Chỉnh sửa</a>
+
+            <a class="btn btn-danger" th:href="@{'/city/delete/'+${city.id}}">Xóa</a>
+        </div>
+    </div>
+
+</form>
 </body>
 </html>

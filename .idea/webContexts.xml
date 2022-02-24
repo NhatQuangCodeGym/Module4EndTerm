@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/create.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/delete.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/detail.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/list.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities/update.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/cities" />
       </map>

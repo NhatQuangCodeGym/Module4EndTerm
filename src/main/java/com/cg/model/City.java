@@ -1,6 +1,10 @@
 package com.cg.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
@@ -16,7 +20,10 @@ public class City {
 
     private String name;
 
-    @ManyToOne(targetEntity = Country.class)
+    //@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name="country_id", nullable=false, referencedColumnName = "id")
     private Country country;
 
     @Min(0)

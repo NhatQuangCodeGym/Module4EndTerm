@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/city")
@@ -28,6 +29,14 @@ public class CityController {
         ModelAndView modelAndView = new ModelAndView("/cities/list");
         List<City> cities = cityService.findAll();
         modelAndView.addObject("cities",cities);
+        return modelAndView;
+    }
+
+    @GetMapping("/{id}")
+    public ModelAndView getCityInfor(@PathVariable Long id){
+        ModelAndView modelAndView = new ModelAndView("/cities/detail");
+        City city = cityService.findById(id);
+        modelAndView.addObject("city",city);
         return modelAndView;
     }
 
